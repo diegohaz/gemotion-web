@@ -8,6 +8,8 @@
 
 ## `redux`
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/diegohaz/gemotion-web.svg)](https://greenkeeper.io/)
+
 - **[Demo](https://arc.js.org)**
 - **[Documentation](https://github.com/diegohaz/arc/wiki)**
 
