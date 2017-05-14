@@ -30,15 +30,11 @@ const Cara = styled.div`
 const data = []
 
 const types = [
-  { id: 1, name: 'Interesse', color: '#F44336', key: 'interest' },
-  { id: 2, name: 'Foco', color: '#795548', key: 'focus' },
-  { id: 3, name: 'Estresse', color: '#000000', key: 'stress' },
-  { id: 4, name: 'Engajamento', color: '#009688', key: 'engagement' },
-  { id: 5, name: 'Excitação', color: '#FF9800', key: 'excitement' },
-  { id: 6, name: 'Relaxamento', color: '#2196F3', key: 'relaxation' },
-  { id: 7, name: 'Alegria', color: '#CDDC39', key: 'joy' },
-  { id: 8, name: 'Raiva', color: '#9E9E9E', key: 'anger' },
-  { id: 9, name: 'Desgosto', color: '#607D8B', key: 'disgust' },
+  { id: 1, name: 'Atenção', color: '#E91E63', key: 'atencao' },
+  { id: 2, name: 'Felicidade', color: '#FF9800', key: 'felicidade' },
+  { id: 3, name: 'Tristeza', color: '#607D8B', key: 'tristeza' },
+  { id: 4, name: 'Desagrado', color: '#000000', key: 'desagrado' },
+  { id: 5, name: 'Medo', color: '#673AB7', key: 'medo' },
 ]
 
 const totalSeconds = 86
@@ -72,7 +68,7 @@ class Chart extends React.Component {
   }
 
   state = {
-    selected: [1],
+    selected: [1, 2, 3, 4, 5],
   }
 
   handleCheckboxChange = (evt) => {
@@ -93,7 +89,7 @@ class Chart extends React.Component {
     const { percent, impressions } = this.props
     const { selected } = this.state
 
-    if (!impressions.interest) return null
+    if (!Object.keys(impressions).length) return null
 
     if (!data.length) {
       Object.keys(impressions).forEach((key) => {
