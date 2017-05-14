@@ -4,7 +4,9 @@ import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 
+import { basename } from 'config'
 import configureStore from 'store/configure'
 import api from 'services/api'
 import App from 'components/App'
@@ -13,7 +15,9 @@ const store = configureStore({}, { api: api.create() })
 
 const renderApp = () => (
   <Provider store={store}>
-    <App />
+    <BrowserRouter basename={basename}>
+      <App />
+    </BrowserRouter>
   </Provider>
 )
 

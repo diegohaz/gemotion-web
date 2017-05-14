@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 
-import Chart from './Chart'
+import { Chart } from 'containers'
 import Video from './Video'
 
 // https://github.com/diegohaz/arc/wiki/Styling
