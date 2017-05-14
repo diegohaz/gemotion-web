@@ -1,11 +1,11 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import { injectGlobal, ThemeProvider } from 'styled-components'
+import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 
-import { HomePage } from 'components'
+import Chart from './Chart'
+import Video from './Video'
 
 // https://github.com/diegohaz/arc/wiki/Styling
-import theme from './themes/default'
+import theme from './theme'
 
 injectGlobal`
   body {
@@ -13,14 +13,43 @@ injectGlobal`
   }
 `
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Switch>
-        <Route path="/" component={HomePage} exact />
-      </Switch>
-    </ThemeProvider>
-  )
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const VideoWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+`
+
+class App extends React.Component {
+  state = {
+    percent: 0,
+  }
+
+  handleUpdate = (percent) => {
+    this.setState({
+      percent,
+    })
+  }
+
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        <Wrapper>
+          <VideoWrapper>
+            <Video width={960} onUpdate={this.handleUpdate} />
+          </VideoWrapper>
+          <Chart percent={this.state.percent} />
+        </Wrapper>
+      </ThemeProvider>
+    )
+  }
 }
 
 export default App

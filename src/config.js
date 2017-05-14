@@ -6,13 +6,11 @@ const config = {
     isDev: process.env.NODE_ENV !== 'production',
     basename: process.env.PUBLIC_PATH,
     isBrowser: typeof window !== 'undefined',
-    apiUrl: 'https://jsonplaceholder.typicode.com',
+    apiUrl: 'http://192.241.174.143:8000',
   },
   test: {},
   development: {},
-  production: {
-    apiUrl: 'https://jsonplaceholder.typicode.com',
-  },
+  production: {},
 }
 
 module.exports = merge(config.all, config[config.all.env])
